@@ -1,11 +1,10 @@
-import "../../src/index.css";
+import { useState } from "react";
 
 const Rating = () => {
+  const [rating, setRating] = useState(0);
+  const [hover, setHover] = useState(0);
+
   const stars = Array.from({ length: 5 }, (_, i) => i + 1);
-
-  const clicked = (index) => console.log("clicked ", index);
-
-  const hovered = (direction, index) => console.log(direction, index);
 
   return (
     <div className="rating-container">
@@ -13,10 +12,16 @@ const Rating = () => {
       <div className="stars">
         {stars.map((star, index) => (
           <span
-            onClick={() => clicked(index)}
-            onMouseEnter={() => hovered("enter", index)}
-            onMouseLeave={() => hovered("leave", index)}
             key={star}
+            onClick={() => setRating(star)}
+            onMouseEnter={() => {
+              console.log("mouseenter on star:", star);
+              setHover(star);
+            }}
+            onMouseLeave={() => {
+              console.log("mouseleave");
+              setHover(0);
+            }}
             className="star"
           >
             {"\u2605"}
