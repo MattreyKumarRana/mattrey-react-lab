@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Star from "./Star";
 import Modal from "./Modal";
+import Button from "./Button";
 
 const Rating = ({ heading = "Rate your experience", color = "gold" }) => {
   const [rating, setRating] = useState(0);
@@ -43,13 +44,20 @@ const Rating = ({ heading = "Rate your experience", color = "gold" }) => {
           <p className="feedback">{feedbackMessages[rating - 1]}</p>
         )}
 
-        <button
+        {/* <button
           className="submit-btn"
           onClick={handleSubmit}
           disabled={rating === 0}
         >
           Submit
-        </button>
+        </button> */}
+        <Button
+          className="submit-btn"
+          disabled={rating === 0}
+          onClick={handleSubmit}
+        >
+          Submit
+        </Button>
       </div>
 
       <Modal isOpen={submitted} rating={rating} closeModal={closeModal} />
