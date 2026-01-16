@@ -1,6 +1,6 @@
 const NoteList = ({ notes }) => {
   if (notes.length === 0) {
-    return <p className="text-center text-gray-500">No Notes Added</p>;
+    return <p className="text-center text-gray-500">No Notes Yet</p>;
   }
 
   return (
